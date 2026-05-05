@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meng Liu</title>
+  <meta name="description" content="Personal homepage of Meng Liu, Northwestern Polytechnical University." />
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --card: rgba(255, 255, 255, 0.88);
+      --text: #172033;
+      --muted: #687086;
+      --line: rgba(23, 32, 51, 0.12);
+      --accent: #2f5bea;
+      --accent-soft: rgba(47, 91, 234, 0.10);
+      --shadow: 0 24px 70px rgba(31, 41, 55, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% 20%, rgba(47, 91, 234, 0.16), transparent 28%),
+        radial-gradient(circle at 82% 72%, rgba(21, 128, 120, 0.14), transparent 30%),
+        linear-gradient(135deg, #f8fafc 0%, var(--bg) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(20px, 4vw, 48px);
+    }
+
+    .page {
+      width: min(760px, 100%);
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      padding: clamp(32px, 6vw, 56px);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent), #14b8a6);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+      margin-bottom: 24px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(44px, 8vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      font-weight: 780;
+    }
+
+    .subtitle {
+      max-width: 640px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: clamp(17px, 2.2vw, 22px);
+      line-height: 1.58;
+    }
+
+    /* 改为纵向单列排列 */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 38px;
+      width: 100%;
+    }
+
+    .info-item {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.62);
+      padding: 22px 24px;
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .value {
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: 560;
+      overflow-wrap: break-word;
+    }
+
+    a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(47, 91, 234, 0.35);
+      transition: color 160ms ease, border-color 160ms ease;
+    }
+
+    a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* 邮箱强制单行显示 */
+    .email-link {
+      display: inline-block;
+      white-space: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+      vertical-align: bottom;
+      scrollbar-width: none;
+    }
+
+    .email-link::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(23, 32, 51, 0.06);
+      color: #3a4358;
+      font-size: 14px;
+      font-weight: 560;
+    }
+
+    footer {
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        align-items: flex-start;
+      }
+
+      .card {
+        border-radius: 24px;
+        padding: 28px 22px;
+      }
+
+      .info-item {
+        padding: 20px;
+      }
+
+      .email-link {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="card" aria-labelledby="name">
+      <div class="eyebrow"><span class="dot"></span> Personal Homepage</div>
+
+      <h1 id="name">Meng Liu</h1>
+
+      <p class="subtitle">
+        Researcher at Northwestern Polytechnical University, focusing on artificial intelligence,
+        multimodal large language models, and computer vision.
+      </p>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="label">Email</div>
+          <div class="value">
+            <a class="email-link" href="mailto:mengliu1007@mail.nwpu.edu.cn">
+              mengliu1007@mail.nwpu.edu.cn
+            </a>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="label">Affiliation</div>
+          <div class="value">Northwestern Polytechnical University</div>
+        </div>
+
+        <div class="info-item">
+          <div class="label">Research Interests</div>
+          <div class="value">AI, MLLM, Computer Vision</div>
+          <div class="tags">
+            <span class="tag">Artificial Intelligence</span>
+            <span class="tag">MLLM</span>
+            <span class="tag">Computer Vision</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>© Meng Liu</footer>
+  </main>
+</body>
+</html>
